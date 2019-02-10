@@ -18,6 +18,7 @@ include (cmake/cpu.cmake)
 
 
 set(HEADERS
+    src/xcashAlgorithm.h
     src/api/NetworkState.h
     src/App.h
     src/base/tools/String.h

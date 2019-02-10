@@ -28,7 +28,8 @@
 #include <string.h>
 #include <uv.h>
 
-#define XCASH_ALGORITHM "cn/xcash"
+#include "xcashAlgorithm.h"
+
 
 
 #ifndef XMRIG_NO_HTTPD

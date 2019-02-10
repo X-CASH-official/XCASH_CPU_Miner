@@ -125,7 +125,7 @@ static const char *variants[] = {
     "xao",
     "rto",
     "2",
-    "half",
+    XCASH_ALGORITHM,
     "trtl",
     "gpu"
 };

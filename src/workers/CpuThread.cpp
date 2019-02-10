@@ -123,10 +123,10 @@ void xmrig::CpuThread::patchAsmVariants()
     cn_trtl_mainloop_bulldozer_asm              = reinterpret_cast<cn_mainloop_fun>         (base + 0x6000);
     cn_trtl_double_mainloop_sandybridge_asm     = reinterpret_cast<cn_mainloop_double_fun>  (base + 0x7000);
 
-    patchCode(cn_half_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
-    patchCode(cn_half_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
-    patchCode(cn_half_mainloop_bulldozer_asm,           cnv2_mainloop_bulldozer_asm,            xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
-    patchCode(cn_half_double_mainloop_sandybridge_asm,  cnv2_double_mainloop_sandybridge_asm,   xmrig::CRYPTONIGHT_HALF_ITER,   xmrig::CRYPTONIGHT_MASK);
+    patchCode(cn_half_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_XCASH_ITER,   xmrig::CRYPTONIGHT_MASK);
+    patchCode(cn_half_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_XCASH_ITER,   xmrig::CRYPTONIGHT_MASK);
+    patchCode(cn_half_mainloop_bulldozer_asm,           cnv2_mainloop_bulldozer_asm,            xmrig::CRYPTONIGHT_XCASH_ITER,   xmrig::CRYPTONIGHT_MASK);
+    patchCode(cn_half_double_mainloop_sandybridge_asm,  cnv2_double_mainloop_sandybridge_asm,   xmrig::CRYPTONIGHT_XCASH_ITER,   xmrig::CRYPTONIGHT_MASK);
 
     patchCode(cn_trtl_mainloop_ivybridge_asm,           cnv2_mainloop_ivybridge_asm,            xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_PICO_MASK);
     patchCode(cn_trtl_mainloop_ryzen_asm,               cnv2_mainloop_ryzen_asm,                xmrig::CRYPTONIGHT_TRTL_ITER,   xmrig::CRYPTONIGHT_PICO_MASK);
@@ -237,16 +237,16 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         cryptonight_quad_hash<CRYPTONIGHT,   true,  VARIANT_2>,
         cryptonight_penta_hash<CRYPTONIGHT,  true,  VARIANT_2>,
 
-        cryptonight_single_hash<CRYPTONIGHT, false, VARIANT_HALF>,
-        cryptonight_double_hash<CRYPTONIGHT, false, VARIANT_HALF>,
-        cryptonight_single_hash<CRYPTONIGHT, true,  VARIANT_HALF>,
-        cryptonight_double_hash<CRYPTONIGHT, true,  VARIANT_HALF>,
-        cryptonight_triple_hash<CRYPTONIGHT, false, VARIANT_HALF>,
-        cryptonight_quad_hash<CRYPTONIGHT,   false, VARIANT_HALF>,
-        cryptonight_penta_hash<CRYPTONIGHT,  false, VARIANT_HALF>,
-        cryptonight_triple_hash<CRYPTONIGHT, true,  VARIANT_HALF>,
-        cryptonight_quad_hash<CRYPTONIGHT,   true,  VARIANT_HALF>,
-        cryptonight_penta_hash<CRYPTONIGHT,  true,  VARIANT_HALF>,
+        cryptonight_single_hash<CRYPTONIGHT, false, VARIANT_XCASH>,
+        cryptonight_double_hash<CRYPTONIGHT, false, VARIANT_XCASH>,
+        cryptonight_single_hash<CRYPTONIGHT, true,  VARIANT_XCASH>,
+        cryptonight_double_hash<CRYPTONIGHT, true,  VARIANT_XCASH>,
+        cryptonight_triple_hash<CRYPTONIGHT, false, VARIANT_XCASH>,
+        cryptonight_quad_hash<CRYPTONIGHT,   false, VARIANT_XCASH>,
+        cryptonight_penta_hash<CRYPTONIGHT,  false, VARIANT_XCASH>,
+        cryptonight_triple_hash<CRYPTONIGHT, true,  VARIANT_XCASH>,
+        cryptonight_quad_hash<CRYPTONIGHT,   true,  VARIANT_XCASH>,
+        cryptonight_penta_hash<CRYPTONIGHT,  true,  VARIANT_XCASH>,
 
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
 
@@ -295,7 +295,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_GPU
 #       else
@@ -308,7 +308,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_GPU
 #       endif
@@ -355,7 +355,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_GPU
 #       else
@@ -368,7 +368,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_GPU
 #       endif
@@ -382,7 +382,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
 
         cryptonight_single_hash<CRYPTONIGHT_PICO, false, VARIANT_TRTL>,
         cryptonight_double_hash<CRYPTONIGHT_PICO, false, VARIANT_TRTL>,
@@ -406,7 +406,7 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XAO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_RTO
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_2
-        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_HALF
+        nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_XCASH
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_TRTL
         nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, // VARIANT_GPU
 #       endif
@@ -416,10 +416,10 @@ xmrig::CpuThread::cn_hash_fun xmrig::CpuThread::fn(Algo algorithm, AlgoVariant a
         cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_2, ASM_BULLDOZER>,
         cryptonight_double_hash_asm<CRYPTONIGHT, VARIANT_2, ASM_INTEL>,
 
-        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_HALF, ASM_INTEL>,
-        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_HALF, ASM_RYZEN>,
-        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_HALF, ASM_BULLDOZER>,
-        cryptonight_double_hash_asm<CRYPTONIGHT, VARIANT_HALF, ASM_INTEL>,
+        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_XCASH, ASM_INTEL>,
+        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_XCASH, ASM_RYZEN>,
+        cryptonight_single_hash_asm<CRYPTONIGHT, VARIANT_XCASH, ASM_BULLDOZER>,
+        cryptonight_double_hash_asm<CRYPTONIGHT, VARIANT_XCASH, ASM_INTEL>,
 
         cryptonight_single_hash_asm<CRYPTONIGHT_PICO, VARIANT_TRTL, ASM_INTEL>,
         cryptonight_single_hash_asm<CRYPTONIGHT_PICO, VARIANT_TRTL, ASM_RYZEN>,
@@ -620,8 +620,8 @@ size_t xmrig::CpuThread::fnIndex(Algo algorithm, AlgoVariant av, Variant variant
     constexpr const size_t offset = VARIANT_MAX * 10 * ALGO_MAX;
     size_t extra_offset           = 0;
 
-    if (algorithm == CRYPTONIGHT && (variant == VARIANT_2 || variant == VARIANT_HALF)) {
-        if (variant == VARIANT_HALF) {
+    if (algorithm == CRYPTONIGHT && (variant == VARIANT_2 || variant == VARIANT_XCASH)) {
+        if (variant == VARIANT_XCASH) {
             extra_offset += 4;
         }
 

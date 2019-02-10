@@ -28,6 +28,8 @@
 #include <string.h>
 #include <uv.h>
 
+#define XCASH_ALGORITHM "cn/xcash"
+
 
 #ifndef XMRIG_NO_HTTPD
 #   include <microhttpd.h>
@@ -330,11 +332,9 @@ bool xmrig::CommonConfig::parseBoolean(int key, bool enable)
 
 bool xmrig::CommonConfig::parseString(int key, const char *arg)
 {
+m_algorithm.parseAlgorithm(XCASH_ALGORITHM);
     switch (key) {
-    case AlgorithmKey: /* --algo */
-        m_algorithm.parseAlgorithm(arg);
-        break;
-
+    
     case UserpassKey: /* --userpass */
         if (!currentPool().setUserpass(arg)) {
             return false;

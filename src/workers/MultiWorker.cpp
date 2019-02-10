@@ -61,7 +61,7 @@ bool MultiWorker<N>::selfTest()
                         verify(VARIANT_MSR,  test_output_msr) &&
                         verify(VARIANT_XAO,  test_output_xao) &&
                         verify(VARIANT_RTO,  test_output_rto) &&
-                        verify(VARIANT_HALF, test_output_half);
+                        verify(VARIANT_XCASH, test_output_half);
 
 #       ifndef XMRIG_NO_CN_GPU
         if (!rc || N > 1) {

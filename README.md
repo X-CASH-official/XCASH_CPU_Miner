@@ -123,11 +123,11 @@ Note: If you just installed Visual Studio 2017 you can use 3.3, If you already h
 * Clone the repository   
 `git clone https://github.com/X-CASH-official/XCASH_CPU_Miner.git`
 
-* Create a build folder and build the program
+* Create a build folder and build the program  
 Replace PREBUILT_DEPENDENCIES_DIRECTORY with the directory location of the prebuilt dependencies  
 `cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" -DXMRIG_DEPS=PREBUILT_DEPENDENCIES_DIRECTORY && cmake --build . --config Release`
 
-If you get errors about redefintion of structs you might need to build without HTTPD and TLS (meaning the API and TSL will not work) 
+If you get errors about redefintion of structs you might need to build without HTTPD and TLS (meaning the API and TSL will not work)  
 `cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" -DXMRIG_DEPS=PREBUILT_DEPENDENCIES_DIRECTORY -DWITH_HTTPD=OFF -DWITH_TLS=OFF && cmake --build . --config Release`
 
 ## Common Issues

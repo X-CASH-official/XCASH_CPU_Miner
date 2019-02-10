@@ -75,9 +75,10 @@ In this example, we are:
 * Using the highest CPU priority `--cpu-priority 5`
 * Using 4 CPU threads `--threads 4`
 * Using keepalive for TCP packets to prevent a timeout `--keepalive`
-* Connecting to the official X_CASH mining pool `--url minexcash.com:3333`
+* Connecting to the official X-CASH mining pool `--url minexcash.com:3333`
 * Mining using "YOUR_XCASH_XCA_OR_XCB_ADDRESS" (replace YOUR_XCASH_XCA_OR_XCB_ADDRESS with your address) `--user YOUR_XCASH_XCA_OR_XCB_ADDRESS`
-* Using a password of YOUR_MINING_COMPUTER_NAME (replace YOUR_MINING_COMPUTER_NAME with any name for your mining computer) `--pass YOUR_MINING_COMPUTER_NAME`
+* Using a password of YOUR_MINING_COMPUTER_NAME (replace YOUR_MINING_COMPUTER_NAME with any name for your mining computer) `--pass YOUR_MINING_COMPUTER_NAME`  
+
 `./XCASH_CPU_Miner --cpu-priority 5 --threads 4 --keepalive --url minexcash.com:3333 --user YOUR_XCASH_XCA_OR_XCB_ADDRESS --pass YOUR_MINING_COMPUTER_NAME`  
 
 ## Algorithm variations

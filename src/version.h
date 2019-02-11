@@ -25,7 +25,7 @@
 #ifndef XMRIG_VERSION_H
 #define XMRIG_VERSION_H
 
-#define APP_ID        "xmrig"
+#define APP_ID        "XCASH CPU Miner"
 #define APP_NAME      "XCASH CPU Miner"
 #define APP_DESC      "XCASH CPU Miner"
 #define APP_VERSION   "1.0.0"
@@ -34,8 +34,8 @@
 #define APP_COPYRIGHT ""
 #define APP_KIND      "cpu"
 
-#define APP_VER_MAJOR  2
-#define APP_VER_MINOR  11
+#define APP_VER_MAJOR  1
+#define APP_VER_MINOR  0
 #define APP_VER_PATCH  0
 
 #ifdef _MSC_VER

@@ -111,6 +111,9 @@ In this example, we are:
 * Create a build folder and build the program  
 `cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. && make`
 
+If you need a static build run  
+`cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. -DBUILD_STATIC=ON && make`
+
 ### Windows
 * Install dependencies
 Make sure you install Visual Studio 2017 Community Edition
@@ -129,6 +132,9 @@ Replace PREBUILT_DEPENDENCIES_DIRECTORY with the directory location of the prebu
 
 If you get errors about redefintion of structs you might need to build without HTTPD and TLS (meaning the API and TSL will not work)  
 `cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" -DXMRIG_DEPS=PREBUILT_DEPENDENCIES_DIRECTORY -DWITH_HTTPD=OFF -DWITH_TLS=OFF && cmake --build . --config Release`
+
+If you need a static build run  
+`cd XCASH_CPU_Miner && mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" -DXMRIG_DEPS=PREBUILT_DEPENDENCIES_DIRECTORY -DBUILD_STATIC=ON && cmake --build . --config Release`
 
 ## Common Issues
 ### HUGE PAGES unavailable

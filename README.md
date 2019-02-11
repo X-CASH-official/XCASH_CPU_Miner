@@ -1,7 +1,7 @@
 # XCASH CPU Miner
 
 This program is based on XMRIG
-* This is the **CPU-mining** version, there is also a [NVIDIA GPU version](https://github.com/X-CASH-official/XCASH_Nvidia_Miner) and [AMD GPU version](https://github.com/X-CASH-official/XCASH_AMD_Miner).
+* This is the **CPU-mining** version, there is also a [NVIDIA GPU version](https://github.com/X-CASH-official/XCASH_NVIDIA_Miner) and [AMD GPU version](https://github.com/X-CASH-official/XCASH_AMD_Miner).
 
 Note: There is 0% dev fee
 
@@ -51,7 +51,6 @@ Note: There is 0% dev fee
       --no-huge-pages      disable huge pages support
       --no-color           disable colored output
       --variant            algorithm PoW variant
-      --donate-level=N     donate level, default 5% (5 minutes in 100 minutes)
       --user-agent         set custom user-agent string for pool
   -B, --background         run the miner in the background
   -c, --config=FILE        load a JSON-format configuration file

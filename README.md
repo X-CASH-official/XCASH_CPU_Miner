@@ -3,6 +3,8 @@
 This program is based on XMRIG
 * This is the **CPU-mining** version, there is also a [NVIDIA GPU version](https://github.com/X-CASH-official/XCASH_Nvidia_Miner) and [AMD GPU version](https://github.com/X-CASH-official/XCASH_AMD_Miner).
 
+Note: There is 0% dev fee
+
 #### Table of contents
 * [Features](#features)
 * [Download](#download)
